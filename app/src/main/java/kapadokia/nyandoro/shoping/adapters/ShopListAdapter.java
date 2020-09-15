@@ -13,8 +13,8 @@ import kapadokia.nyandoro.shoping.models.Product;
 public class ShopListAdapter extends ListAdapter<Product, ShopListAdapter.ShopViewHolder> {
 
 
-    protected ShopListAdapter(@NonNull DiffUtil.ItemCallback<Product> diffCallback) {
-        super(diffCallback);
+    public ShopListAdapter() {
+        super(Product.itemCallback);
     }
 
     class ShopViewHolder extends RecyclerView.ViewHolder{
@@ -32,6 +32,11 @@ public class ShopListAdapter extends ListAdapter<Product, ShopListAdapter.ShopVi
     @Override
     public void onBindViewHolder(@NonNull ShopViewHolder holder, int position) {
 
+    }
+
+    public interface ShopInterface{
+        void addItem(Product product);
+        void onItemClick(Product product);
     }
 
 }
